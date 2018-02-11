@@ -16,14 +16,55 @@ document.addEventListener('keydown', function(e) {
     moveTo(20);
   }
   
-  if (parseInt(playerLeft) < 30) {
+  if (parseInt(playerLeft) < 20) {
     moveTo(20);
   }
   
-  if (parseInt(playerLeft) > 270) {
+  if (parseInt(playerLeft) > 230) {
     moveTo(-20);
   }
 })
+
+var ball = wrapper.querySelector('.ball');
+
+
+animate(function(timePassed) {
+    ball.style.top = timePassed / 10 + 'px';
+  }, 5000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  function animate(draw, duration) {
+    var start = performance.now();
+  
+    requestAnimationFrame(function animate(time) {
+      // определить, сколько прошло времени с начала анимации
+      var timePassed = time - start;
+  
+      // возможно небольшое превышение времени, в этом случае зафиксировать конец
+      if (timePassed > duration) timePassed = duration;
+  
+      // нарисовать состояние анимации в момент timePassed
+      draw(timePassed);
+  
+      // если время анимации не закончилось - запланировать ещё кадр
+      if (timePassed < duration) {
+        requestAnimationFrame(animate);
+      }
+  
+    });
+  }
 
 function moveTo (n) {
   player.style.left = parseInt(playerLeft) + n + 'px';

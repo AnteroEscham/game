@@ -15,11 +15,12 @@ body, html {
   .wrapper {
     display: block;
     margin: 40px auto;
-    width: 300px;
+    width: 250px;
     height: 350px;
     background-color: #000;
     position: relative;
     border: 2px solid rgb(73, 97, 61);
+    overflow: hidden;
   }
   
   .player {
@@ -33,4 +34,15 @@ body, html {
     left: 50%;
     right: 50%;
     
+  }
+
+  .ball {
+      width: 5px;
+      height: 5px;
+      background-color: #fff;
+      border-radius: 50%;
+      top: -20px;
+      left: 100px;
+      position: absolute;
+      display: inline-block;
   }
